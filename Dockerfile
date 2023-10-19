@@ -21,8 +21,8 @@ RUN curl https://pyenv.run | bash \
     && echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 
 FROM pyenv as python311
-RUN . ~/.bashrc \
-    && CPPFLAGS="$(pkg-config --cflags openssl11)" \
+SHELL ["/bin/bash", "-l", "-c"]
+RUN CPPFLAGS="$(pkg-config --cflags openssl11)" \
         LDFLAGS="$(pkg-config --libs openssl11)" \
-        pyenv install 3.11 \
-        pyenv global "$(pyenv latest 3.11)"
+        pyenv install 3.11
+RUN pyenv global "$(pyenv latest 3.11)"
