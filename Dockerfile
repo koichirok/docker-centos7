@@ -26,3 +26,4 @@ RUN CPPFLAGS="$(pkg-config --cflags openssl11)" \
         LDFLAGS="$(pkg-config --libs openssl11)" \
         pyenv install 3.11
 RUN pyenv global "$(pyenv latest 3.11)"
+ENV PATH="/root/.pyenv/shims:/root/.pyenv/bin:${PATH}"
