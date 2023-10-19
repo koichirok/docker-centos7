@@ -1,1 +1,1 @@
-# docker-python3.11-centos7
+# CentOS 7 docker images
